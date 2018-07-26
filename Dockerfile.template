@@ -25,6 +25,8 @@ RUN pip install python-networkmanager
 
 WORKDIR /usr/src/app
 
+COPY 8192cu.conf /etc/modprobe.d/8192cu.conf
+
 RUN update-rc.d hostapd defaults
 
 COPY hostapd.init-d /etc/default/hostapd
