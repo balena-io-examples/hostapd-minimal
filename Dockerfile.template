@@ -1,4 +1,4 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-debian:buster
+FROM resin/%%RESIN_MACHINE_NAME%%-debian:stretch
 
 ENV DBUS_SYSTEM_BUS_ADDRESS unix:path=/host/run/dbus/system_bus_socket
 
@@ -18,6 +18,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && systemctl mask hostapd \
     && systemctl mask dnsmasq
+
+RUN pip install wheel
 
 RUN pip install python-networkmanager
 
