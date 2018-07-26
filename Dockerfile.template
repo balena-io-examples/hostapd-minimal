@@ -8,12 +8,18 @@ RUN apt-get update \
 	&& apt-get install -y \
 		hostapd \
 		dnsmasq \
-		python-networkmanager \
+		libdbus-1-dev \
+		libglib2.0-dev \
+		python3-dev \
+		python3-pip \
+		python3-setuptools \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && systemctl mask hostapd \
     && systemctl mask dnsmasq \
     && systemctl mask NetworkManager
+
+RUN pip3 install python-networkmanager
 
 WORKDIR /usr/src/app
 
