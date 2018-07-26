@@ -4,14 +4,14 @@ sleep 15s
 
 echo 'Unmanage WiFi interface'
 
-python -c "import NetworkManager; NetworkManager.NetworkManager.GetDeviceByIpIface('wlan0').Managed = False"
+python -c "import NetworkManager; NetworkManager.NetworkManager.GetDeviceByIpIface('wlan1').Managed = False"
 
 sleep 5s
 
 echo 'Set ip address'
 
-ip addr flush dev wlan0
-ip addr add 192.168.42.1/24 dev wlan0
+ip addr flush dev wlan1
+ip addr add 192.168.42.1/24 dev wlan1
 
 sleep 5s
 
